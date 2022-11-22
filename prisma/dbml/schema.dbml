@@ -1,0 +1,82 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Cid {
+  id String [pk]
+}
+
+Table Config {
+  id String [pk]
+}
+
+Table Coupon {
+  id String [pk]
+  active Boolean [not null]
+  amountToUse Float [not null]
+  couponName String [unique, not null]
+  created DateTime [not null]
+  discountAmount Float [not null]
+  effectiveEndDate DateTime [not null]
+  effectiveStartDate DateTime [not null]
+  patients Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  percentage Boolean [not null]
+  professionals Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  terms Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  updated DateTime
+}
+
+Table CreditCard {
+  id String [pk]
+  active Boolean [not null]
+  cardNumber String [not null]
+  created DateTime [not null]
+  expirationDate String [not null]
+  holder String [not null]
+  updated DateTime
+  userId String [not null]
+}
+
+Table Partner {
+  id String [pk]
+}
+
+Table Patient {
+  id String [pk]
+  active Boolean [not null]
+  address Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  birthdate Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  created DateTime [not null]
+  email String [not null]
+  ethnicity BigInt [not null]
+  federalRegister BigInt [not null]
+  name String [not null]
+  phone String [not null]
+  sex BigInt [not null]
+  term Json [not null, note: 'Nested objects had no data in the sample dataset to introspect a nested type.']
+  updated Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  userId String [unique, not null]
+}
+
+Table Professional {
+  id String [pk]
+  userId Json [unique, note: 'Field referred in an index, but found no data to define the type.']
+}
+
+Table Schedule {
+  id String [pk]
+}
+
+Table User {
+  id String [pk]
+  active Boolean [not null]
+  created DateTime [not null]
+  dateUpdatedPassword Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  email String [unique, not null]
+  isManager Boolean [not null]
+  password String [not null]
+  resetPassword Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  tokenDateExpire Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  tokenRecoveryPassword Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+  updated Json [note: 'Could not determine type: the field only had null or empty values in the sample set.']
+}
