@@ -14,6 +14,7 @@ import { SignupInput } from '../dto/input/signup.input';
 import { Token } from '../models/token.model';
 import { CustomException } from 'src/common/controllerUtils/controllerHandling/customException';
 import { ITokenPayload } from '../dto/output/tokenPayload.output';
+import { RoleEnum } from '../enum/role.enum';
 
 @Injectable()
 export class AuthService {
@@ -75,7 +76,7 @@ export class AuthService {
     const tokenContent: ITokenPayload = {
       userId: user.id,
       email: user.email,
-      roles: []
+      roles: user.roles as RoleEnum[]
     };
     return this.generateTokens(tokenContent);
   }
