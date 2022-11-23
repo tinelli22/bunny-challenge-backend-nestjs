@@ -23,6 +23,8 @@ model Coupon {
   couponName         String    @unique
   discountAmount     Float  
   percentage         Boolean
+  effectiveEndDate   DateTime  @db.Date
+  effectiveStartDate DateTime  @db.Date
   created            DateTime  @default(now())
   updated            DateTime? @db.Date
   deleted            DateTime? @db.Date
