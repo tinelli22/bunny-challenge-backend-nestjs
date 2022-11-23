@@ -9,8 +9,8 @@ const config: Config = {
   },
   swagger: {
     enabled: true,
-    title: 'API Dermato Virtual',
-    description: 'API Dermato Virtual NestJS',
+    title: 'API Bunny Software - Challenge back one',
+    description: 'API Bunny Software - Challenge back one - NestJS',
     version: '1.5',
     path: 'api',
   },

@@ -21,4 +21,14 @@ export abstract class CounponPostInput {
   @ApiProperty()
   @Field()
   percentage: boolean;
+
+  @ApiProperty()
+  @Field()
+  @IsNotEmpty()
+  effectiveStartDate: string;
+
+  @ApiProperty()
+  @Field()
+  @IsNotEmpty()
+  effectiveEndDate: string;
 }
