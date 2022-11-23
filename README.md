@@ -28,7 +28,7 @@ Como dissemos o challenge é simples, mas não é bobo hehe.
 
 De propósito, não especificamos os tipos que serão usados em cada propriedade, não disse quais são os dados sensíveis para serem criptografados.
 
-Fizemos isso porque vamos analisas varias coisas no teste, sendo elas:
+Fizemos isso porque vamos analisar varias coisas no teste, sendo elas:
 
 * Capacidade de análise
 * Capacidade de decisão em resolver problemas não muito bem definidos
@@ -51,9 +51,9 @@ Essa api do github, é uma versão simplificada do que usamos no dia a dia, ent�
 
 Qualquer dúvida, tente se virar ao máximo, mas se não puder, entrem em contato sem medo, sempre precisamos uns dos outros.
 
-Só gostaria de esclarecer mais uma coisa, um pouco chatinha :,<, mas que é bom ser esclarecida para termos transparência.
+Só gostaria de esclarecer mais uma coisa, um pouco chatinha :,<, mas que é bom ser esclarecida para termos transparência:
 
-O sucesso em fazer nosso challenge, não é garantia definitiva, de que estará trabalhando conosco, pois isso pode varias, de acordo com a quantidade de demandas que temos, e também da quantidade de "braços" fazendo os projeto.
+O sucesso em fazer nosso challenge, não é garantia definitiva, de que estará trabalhando conosco, pois isso pode variar, de acordo com a quantidade de demandas que temos, e também da quantidade de "braços" fazendo os projeto.
 
 #### Boa sorte!
 
