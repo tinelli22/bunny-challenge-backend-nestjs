@@ -8,6 +8,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './services/auth.service';
 import { PasswordService } from './services/password.service';
 import { UsersModule } from '../users/user.module';
+import { jwtConstants } from './constants';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { UsersModule } from '../users/user.module';
       useFactory: async (configService: ConfigService) => {
         const securityConfig = configService.get<SecurityConfig>('security');
         return {
-          secret: configService.get<string>('JWT_ACCESS_SECRET'),
+          secret: jwtConstants.secret,
           signOptions: {
             expiresIn: securityConfig.expiresIn,
           },

@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { AuthModule } from 'src/modules/auth/auth.module';
 import { UsersModule } from 'src/modules/users/user.module';
 import { CouponModule } from 'src/modules/coupon/coupon.module';
+import { CreditcardModule } from './modules/creditcard/creditcard.module';
 import config from 'src/common/configs/config.api';
 import { loggingMiddleware } from 'src/middleware/logging.middleware';
 
@@ -22,6 +23,7 @@ import { loggingMiddleware } from 'src/middleware/logging.middleware';
     AuthModule,
     UsersModule,
     CouponModule,
+    CreditcardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
