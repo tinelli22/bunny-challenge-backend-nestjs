@@ -34,7 +34,11 @@ export class CreditcardService extends BaseService {
       userId: user.id,
     };
 
-    return await this.create(data);
+    const resp = await this.create(data);
+    return {
+      success: true,
+      data: this.decodeAesAttributes(resp.data),
+    };
   }
 
   async updateCreditCard(
@@ -54,24 +58,32 @@ export class CreditcardService extends BaseService {
       holder: cryptedHolder,
     };
 
-    return await this.update(id, data);
+    const resp = await this.update(id, data);
+    return {
+      success: true,
+      data: this.decodeAesAttributes(resp.data),
+    };
   }
 
   async getAll(userId: string): Promise<ResponseDefaultType> {
     const query = { userId };
     const { data } = await this.byQuery(query);
     const creditcards = (data as Creditcard[]).map((cd) => {
-      return {
-        ...cd,
-        cardNumber: this.cryptoService.decryptAES(cd.cardNumber),
-        expirationDate: this.cryptoService.decryptAES(cd.expirationDate),
-        holder: this.cryptoService.decryptAES(cd.holder),
-      };
+      return this.decodeAesAttributes(cd);
     });
 
     return {
       success: true,
       data: creditcards,
+    };
+  }
+
+  private decodeAesAttributes(object: Creditcard) {
+    return {
+      ...object,
+      cardNumber: this.cryptoService.decryptAES(object.cardNumber),
+      expirationDate: this.cryptoService.decryptAES(object.expirationDate),
+      holder: this.cryptoService.decryptAES(object.holder),
     };
   }
 }
