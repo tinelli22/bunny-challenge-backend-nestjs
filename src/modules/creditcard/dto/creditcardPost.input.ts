@@ -16,5 +16,10 @@ export abstract class CreditcardPostInput {
   @ApiProperty()
   @Field()
   @IsNotEmpty()
+  creditToken: string;
+
+  @ApiProperty()
+  @Field()
+  @IsNotEmpty()
   holder: string;
 }

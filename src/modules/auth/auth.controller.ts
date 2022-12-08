@@ -1,6 +1,7 @@
 import { Controller, Post, HttpStatus, Body, Patch } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LoginInput } from './dto/input/login.input';
+import { SignupInput } from './dto/input/signup.input';
 import { AuthService } from './services/auth.service';
 
 @ApiTags('Authentication')
@@ -22,5 +23,11 @@ export class AuthController {
       accessToken,
       refreshToken,
     };
+  }
+
+  @Post('signup')
+  async signup(@Body() data: SignupInput) {
+    
+    return await this.authService.createUser(data);
   }
 }
