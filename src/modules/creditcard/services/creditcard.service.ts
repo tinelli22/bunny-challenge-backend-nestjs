@@ -6,6 +6,7 @@ import { ResponseDefaultType } from 'src/common/types/responseDefault';
 import { User } from 'src/modules/users/models/user.model';
 import { CreditcardPostInput } from '../dto/creditcardPost.input';
 import { CreditcardPutInput } from '../dto/creditcardPut.input';
+import { Creditcard } from '../models/creditcard.model';
 
 @Injectable()
 export class CreditcardService extends BaseService {
@@ -54,5 +55,23 @@ export class CreditcardService extends BaseService {
     };
 
     return await this.update(id, data);
+  }
+
+  async getAll(userId: string): Promise<ResponseDefaultType> {
+    const query = { userId };
+    const { data } = await this.byQuery(query);
+    const creditcards = (data as Creditcard[]).map((cd) => {
+      return {
+        ...cd,
+        cardNumber: this.cryptoService.decryptAES(cd.cardNumber),
+        expirationDate: this.cryptoService.decryptAES(cd.expirationDate),
+        holder: this.cryptoService.decryptAES(cd.holder),
+      };
+    });
+
+    return {
+      success: true,
+      data: creditcards,
+    };
   }
 }

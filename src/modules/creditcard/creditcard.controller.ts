@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   Param,
   Post,
   Put,
@@ -19,6 +20,12 @@ export class CreditcardController {
   constructor(private readonly creditcardService: CreditcardService) {}
 
   @UseGuards(JwtAuthGuard)
+  @Get()
+  async getAll(@UserEntity() user: User) {
+    return this.creditcardService.getAll(user.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Post('/add')
   async postCreditcard(
     @Body() body: CreditcardPostInput,
@@ -33,12 +40,12 @@ export class CreditcardController {
     @Param('id') id: string,
     @Body() body: CreditcardPutInput
   ) {
-    this.creditcardService.updateCreditCard(id, body);
+    return this.creditcardService.updateCreditCard(id, body);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
   async delete(@Param('id') id: string) {
-    this.creditcardService.delete(id);
+    return this.creditcardService.delete(id);
   }
 }
